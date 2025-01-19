@@ -2,38 +2,12 @@ import streamlit as st
 from PIL import Image
 import json
 
-# Set page configuration
+# Setting the page configuration
 st.set_page_config(page_title="My Portfolio", layout="wide")
 
-# Set the background color for the entire page
-st.markdown("""
-    <style>
-    /* Set the background color for the entire page */
-    html, body {
-        background-color: #e3f2fd !important;  /* Light blue background */
-        height: 100vh;
-        margin: 0;
-    }
-    
-    /* Make sure Streamlit's content area has the same background */
-    .reportview-container {
-        background-color: #e3f2fd !important;
-    }
-    
-    /* Optional: Set sidebar background */
-    .sidebar .sidebar-content {
-        background-color: #ffffff !important;
-    }
-
-    /* Remove extra padding */
-    .css-1v3fvcr {
-        padding: 0 !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
 st.title("Welcome to My Personal Portfolio")
-# Initialize session state for navigation
+
+# Initializing the session state for navigation
 if 'section' not in st.session_state:
     st.session_state.section = 'Home'
 
@@ -57,6 +31,17 @@ def about_me():
         I’m currently pursuing a **BS in Data Science**.
         </div>
     """, unsafe_allow_html=True)
+    
+    # Link to my CV
+    st.markdown("""
+        <div style='text-align: justify;'>
+        You can view and download my CV by clicking the link below:
+        </div>
+    """, unsafe_allow_html=True)
+    
+
+    st.markdown("[Download My CV](https://docs.google.com/document/d/1kUvcpyjDPqq-qmw1DklP1Lki6hWClF5z/edit?usp=sharing&ouid=104362434502810120258&rtpof=true&sd=true)", unsafe_allow_html=True)
+
     st.subheader("Skills")
     skills = {
         "Python": 85,
@@ -75,7 +60,7 @@ def projects():
         with open("project.json") as f:
             projects_data = json.load(f)
 
-        # Using markdown to create box/card layout for each project
+        # Using markdown to create box layout for each project
         for project in projects_data:
             st.markdown(f"""
                 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -102,36 +87,6 @@ def contact():
         submitted = st.form_submit_button("Submit")
         if submitted:
             st.success(f"Thank you, {name}! I will get back to you soon.")
-
-# Custom CSS for layout enhancements
-st.markdown("""
-    <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background: #f9f9f9;
-    }
-    .stButton > button {
-        background-color: #007acc;
-        color: white;
-        font-size: 16px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .stSelectbox > div:first-child {
-        width: 250px !important;
-        overflow: visible !important;
-        white-space: nowrap !important;
-    }
-    .container {
-        background-color: #ffffff;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 # Layout for navigation button
 col1, col2 = st.columns([1, 6])
