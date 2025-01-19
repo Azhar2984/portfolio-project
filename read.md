@@ -19,11 +19,11 @@ This is a personal portfolio web application developed using **Streamlit**. The 
 
 ## Live Demo
 
-[Visit Live Demo](https://yourname-streamlit-app.streamlit.app)
+[Visit Live Demo](https://portfolio-project-gnnyr9vcfb3oxryifjpsmb.streamlit.app)
 
 ## Source Code
 
-[GitHub Repository](https://github.com/username/portfolio-project)
+[GitHub Repository](https://github.com/Azhar2984/portfolio-project)
 
 ## Getting Started
 
